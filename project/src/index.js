@@ -13,6 +13,49 @@ const promo = {
   },
 };
 
+const genres = [
+  {
+    title: 'All genres',
+    active: 'catalog__genres-item catalog__genres-item--active',
+  },
+  {
+    title: 'Comedies',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Crime',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Documentary',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Dramas',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Horror',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Kids & Family',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Romance',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Sci-Fi',
+    active: 'catalog__genres-item ',
+  },
+  {
+    title: 'Thrillers',
+    active: 'catalog__genres-item ',
+  },
+];
+
 const films = [
   {
     filmName: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -96,11 +139,18 @@ const films = [
   },
 ];
 
+const footerUrl = {
+  footerMain: '/',
+  footerToMain: 'main.html',
+};
+
 ReactDOM.render(
   <React.StrictMode>
     <App
       promo = {promo}
       films = {films}
+      footerUrl = {footerUrl}
+      genres = {genres}
     />
   </React.StrictMode>,
   document.getElementById('root'));
