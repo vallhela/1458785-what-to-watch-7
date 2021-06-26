@@ -1,10 +1,17 @@
 import React from 'react';
+import prop from './player-screen.prop';
+import { useParams } from 'react-router-dom';
 
-function PlayerScreen() {
+function PlayerScreen(props) {
+  const {films} = props;
+
+  const {id} = useParams();
+  const filmId = +id; //We ensure that id is number
+  const film = films.filter((p) => p.id === filmId)[0];
 
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={film.videoLink} className="player__video" poster={film.posterImage}></video>
 
       <button type="button" className="player__exit">Exit</button>
 
@@ -14,13 +21,13 @@ function PlayerScreen() {
             <progress className="player__progress" value="30" max="100"></progress>
             <div className="player__toggler" style={{left: '30%'}}>Toggler</div>
           </div>
-          <div className="player__time-value">1:30:29</div>
+          <div className="player__time-value">{film.runTime}</div>
         </div>
 
         <div className="player__controls-row">
           <button type="button" className="player__play">
             <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
+              <use xlinkHref={film.videoLink}></use>
             </svg>
             <span>Play</span>
           </button>
@@ -37,5 +44,7 @@ function PlayerScreen() {
     </div>
   );
 }
+
+PlayerScreen.propTypes = prop.isRequired;
 
 export default PlayerScreen;

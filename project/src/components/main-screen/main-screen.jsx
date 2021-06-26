@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import SmallFilmCard from '../small-film-card/small-film-card';
 import Footer from '../footer/footer';
-import CatalogGenres from '../catalog-genres/catalog-genres';
+import Catalog from '../catalog/catalog';
+import prop from './main-screen.prop';
+import { Link } from 'react-router-dom';
 
 function MainScreen(props) {
-  const {promo, genres, films, footerUrl} = props;
+  const {promo, catalog} = props;
 
   return (
     <React.Fragment>
@@ -18,11 +18,11 @@ function MainScreen(props) {
 
         <header className="page-header film-card__head">
           <div className="logo">
-            <a href="foo" className="logo__link">
+            <Link to="/#" className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <ul className="user-block">
@@ -69,54 +69,13 @@ function MainScreen(props) {
         </div>
       </section>
       <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
+        <Catalog genres={catalog.genres} films={catalog.films}/>
 
-          <ul className="catalog__genres-list">
-            {genres.map((genre) => <CatalogGenres key={genre.title} title={genre.title} active={genre.active}/>)}
-          </ul>
-
-          <div className="catalog__films-list">
-            {films.map((film) => <SmallFilmCard key={film.filmName} filmName={film.filmName} filmImg={film.filmImg} />)}
-          </div>
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
-        </section>
-
-        <Footer key={footerUrl.footerMain} footerUrl={footerUrl.footerMain} />
+        <Footer/>
       </div>
     </React.Fragment>);
 }
 
-MainScreen.propTypes = {
-  promo: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    poster: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  films: PropTypes.arrayOf(
-    PropTypes.shape({
-      filmName: PropTypes.string.isRequired,
-      filmImg: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
-  footerUrl: PropTypes.shape({
-    footerMain: PropTypes.string.isRequired,
-    footerToMain: PropTypes.string.isRequired,
-  }).isRequired,
-  genres: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      active: PropTypes.string.isRequired,
-    }).isRequired,
-  ),
-};
+MainScreen.propTypes = prop.isRequired;
 
 export default MainScreen;
