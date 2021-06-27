@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Footer from '../footer/footer';
 
-function SignInScreen(props) {
-  const {footerUrl} = props;
-
+function SignInScreen() {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -37,13 +34,9 @@ function SignInScreen(props) {
         </form>
       </div>
 
-      <Footer key={footerUrl.footerToMain} footerUrl={footerUrl.footerToMain} />
+      <Footer/>
     </div>
   );
 }
-
-SignInScreen.propTypes = {
-  footerUrl: PropTypes.string.isRequired,
-};
 
 export default SignInScreen;
