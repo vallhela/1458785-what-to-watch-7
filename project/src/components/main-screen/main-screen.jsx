@@ -1,8 +1,8 @@
 import React from 'react';
+import Logo from '../logo/logo';
 import Footer from '../footer/footer';
 import Catalog from '../catalog/catalog';
 import prop from './main-screen.prop';
-import { Link } from 'react-router-dom';
 
 function MainScreen(props) {
   const {promo, catalog} = props;
@@ -17,13 +17,7 @@ function MainScreen(props) {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header film-card__head">
-          <div className="logo">
-            <Link to="/#" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
+          <Logo/>
 
           <ul className="user-block">
             <li className="user-block__item">

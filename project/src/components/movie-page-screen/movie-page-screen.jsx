@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Footer from '../footer/footer';
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import prop from './movie-page-screen.prop';
 import SmallFilmCard from '../small-film-card/small-film-card';
+import Logo from '../logo/logo';
 
 function MoviePageScreen(props) {
   const {films} = props;
@@ -24,13 +25,7 @@ function MoviePageScreen(props) {
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
-            <div className="logo">
-              <Link to="/" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
+            <Logo/>
 
             <ul className="user-block">
               <li className="user-block__item">
@@ -120,7 +115,7 @@ function MoviePageScreen(props) {
           <h2 className="catalog__title">More like this</h2>
 
           <div className="catalog__films-list">
-            {alike.map((p) => <SmallFilmCard key={p.id} filmId={p.id} filmName={p.name} filmImg={p.previewImage}/>)}
+            {alike.map((p) => <SmallFilmCard className="catalog__films-card" key={p.id} filmId={p.id} filmName={p.name} filmPreviewVideoLink={p.previewVideoLink} filmPreviewImage={p.previewImage}/>)}
           </div>
         </section>
 
