@@ -12,5 +12,7 @@ export default PropTypes.shape({
       img: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-  catalog: CatalogProp.isRequired,
+  films: CatalogProp.films,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChanged: PropTypes.func,
 });

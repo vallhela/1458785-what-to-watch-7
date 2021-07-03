@@ -27,7 +27,7 @@ function MyListScreen(props) {
         </ul>
       </header>
 
-      <Catalog genres={null} films={mine}/>
+      <Catalog films={mine}/>
 
       <Footer/>
     </div>

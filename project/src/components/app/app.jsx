@@ -13,13 +13,10 @@ import PropTypes from 'prop-types';
 import filmProp from '../../mocks/films.prop';
 function App(props) {
 
-  const {promo, genres, films} = props;
+  const {promo, films} = props;
   const mainScreen = {
     promo: promo,
-    catalog: {
-      genres: genres,
-      films: films,
-    },
+    films: films,
   };
 
   return (

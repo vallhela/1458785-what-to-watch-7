@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Action } from '../../store/action';
 import Logo from '../logo/logo';
 import Footer from '../footer/footer';
 import Catalog from '../catalog/catalog';
 import prop from './main-screen.prop';
 
 function MainScreen(props) {
-  const {promo, catalog} = props;
+  const {promo, films, selectedGenre, onSelectedGenreChanged} = props;
 
   return (
     <React.Fragment>
@@ -63,7 +65,7 @@ function MainScreen(props) {
         </div>
       </section>
       <div className="page-content">
-        <Catalog genres={catalog.genres} films={catalog.films}/>
+        <Catalog films={films} showGenresFilter selectedGenre={selectedGenre} onSelectedGenreChanged={onSelectedGenreChanged}/>
 
         <Footer/>
       </div>
@@ -72,4 +74,15 @@ function MainScreen(props) {
 
 MainScreen.propTypes = prop.isRequired;
 
-export default MainScreen;
+const mapStateToProps = (state) => ({
+  selectedGenre: state.mainScreenCatalogSelectedGenre,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSelectedGenreChanged(selectedGenre) {
+    dispatch(Action.selecteMainScreenCatalogGenre.create(selectedGenre));
+  },
+});
+
+export {MainScreen};
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
