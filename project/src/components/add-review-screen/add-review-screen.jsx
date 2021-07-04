@@ -1,7 +1,8 @@
 import React from 'react';
+import Logo from '../logo/logo';
 import ReviewForm from './review-form/review-form';
 import prop from './add-review-screen.prop';
-import { Link, useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 function AddReviewScreen(props) {
   const {films, onReview} = props;
@@ -20,13 +21,7 @@ function AddReviewScreen(props) {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header">
-          <div className="logo">
-            <Link to="/" className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
+          <Logo/>
 
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">

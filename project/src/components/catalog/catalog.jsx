@@ -27,7 +27,7 @@ function Catalog(props) {
       </ul>}
 
       <div className="catalog__films-list">
-        {films.map((p) => <CatalogFilmsListItem key={p.id} filmId={p.id} filmName={p.name} filmImg={p.previewImage} onMouseEnter={()=>handleFilmOnMouseEnter(p.id)} onMouseLeave={()=>handleFilmOnMouseLeave()}/>)}
+        {films.map((p) => <CatalogFilmsListItem className="catalog__films-card" key={p.id} filmId={p.id} filmName={p.name} filmPreviewVideoLink={p.previewVideoLink} filmPreviewImage={p.previewImage} onMouseEnter={()=>handleFilmOnMouseEnter(p.id)} onMouseLeave={()=>handleFilmOnMouseLeave()}/>)}
       </div>
 
       <div className="catalog__more">
